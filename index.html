@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy Birthday, Luna</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<button class="music" id="music" aria-pressed="false">Music: off</button>
+<!-- Put your song at assets/music.mp3 -->
+<audio id="bgm" loop src="assets/music.mp3"></audio>
+
+<main>
+<!-- PAGE 1 -->
+<section class="view" id="countdown">
+  <div class="center">
+    <div class="begin" id="beginBox"><p class="script">Luna, something is waiting for you</p><button class="btn" id="begin">Tap to begin</button></div>
+    <div class="count" id="num" aria-live="polite" hidden>10</div>
+    <p class="tease script" id="tease" hidden>10... for the day we met</p>
+    <div class="hero" id="hero" hidden>
+      <h1>Happy Birthday, Luna</h1>
+      <p>Everything on the next pages was made for you.</p>
+      <a class="btn" href="#memories">Open our memories</a>
+    </div>
+    <button class="btn ghost" id="replay" hidden>Watch again</button>
+  </div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="view" id="memories">
+  <h2>Our memory wall</h2>
+  <p class="sub">Tap a photo to flip it.</p>
+  <div class="wall">
+    <!-- Replace assets/memory1.jpg ... assets/memory4.jpg with your photos -->
+    <button class="pol" style="--r:-3deg"><span class="in">
+      <span class="face"><span class="ph" data-file="memory1.jpg"><img src="assets/memory1.jpg" alt="Luna 1"></span><em class="script">Look at that smile</em></span>
+      <span class="back">Luna, your smile could light up a whole city. It is the first thing anyone notices and the last thing they forget.</span></span></button>
+    <button class="pol" style="--r:2deg"><span class="in">
+      <span class="face"><span class="ph" data-file="memory2.jpg"><img src="assets/memory2.jpg" alt="Luna 2"></span><em class="script">Effortless</em></span>
+      <span class="back">You are beautiful without trying, and somehow more beautiful when you are not even paying attention.</span></span></button>
+    <button class="pol" style="--r:-2deg"><span class="in">
+      <span class="face"><span class="ph" data-file="memory3.jpg"><img src="assets/memory3.jpg" alt="Luna 3"></span><em class="script">Those eyes</em></span>
+      <span class="back">One look from you and the room goes quiet. Your eyes say more than most people manage in a whole speech.</span></span></button>
+    <button class="pol" style="--r:3deg"><span class="in">
+      <span class="face"><span class="ph" data-file="memory4.jpg"><img src="assets/memory4.jpg" alt="Luna 4"></span><em class="script">Just perfect</em></span>
+      <span class="back">Every photo of you looks like a painting. The camera is lucky, and so am I.</span></span></button>
+  </div>
+  <p class="next"><a class="btn" href="#love-letter">Next: your birthday letter</a></p>
+</section>
+
+<!-- PAGE 3 -->
+<section class="view" id="love-letter">
+  <h2>Your birthday letter</h2>
+  <div class="letter-grid">
+    <div>
+      <button class="env" id="env" aria-label="Open the envelope">
+        <span class="flap"></span><span class="seal">L</span>
+        <span class="paper" id="paper">
+          <!-- ===== PASTE YOUR BIRTHDAY LETTER HERE (plain text, line breaks are kept) ===== -->
+          <span id="letterBody">Dear Luna,
+
+Wish you many more happy returns of the day Papa 🥳🫂🌟Yes ,
+you gone through many struggles and difficulties but see now you have much experience to face the upcoming major part of your life and you won't struggle there papa❤️‍🩹🩷
+I wish I will be with you in every struggle you face and every cherish you get but If I couldn't don't worry papa 🥰🙌Because my thoughts and actions are always around you 🫠🌜
+You have to face everything independently and I hope you will after your twenties 😊💖See ,now we're in the same age as you wish 💫I  am always with you at the best and also your worst 🤗🤧Once again Wish you many more happy returns of the day Papa 🥳 
+
+ 
+Me</span>
+          <!-- ===== END OF LETTER ===== -->
+        </span>
+      </button>
+      <p class="script hint" id="envHint">Tap the seal</p>
+    </div>
+    <aside>
+      <div class="card" id="card" role="button" tabindex="0" aria-live="polite"></div>
+      <button class="btn ghost" id="nextCard">Next note</button>
+      <div class="ph couple" data-file="couple-special.jpg"><img src="assets/couple-special.jpg" alt="Us"></div>
+    </aside>
+  </div>
+  <p class="next"><a class="btn" href="#surprise">Next: your surprise</a></p>
+</section>
+
+<!-- PAGE 4 -->
+<section class="view" id="surprise">
+  <h2>Your birthday surprise</h2>
+  <div class="frame">
+    <!-- Video, cover image and photo names are set in the FILES list at the top of script.js -->
+    <video controls playsinline></video>
+  </div>
+  <h3>Spin for our next date</h3>
+  <div class="wheel-wrap">
+    <div class="ticker"></div>
+    <canvas id="wheel" width="440" height="440" aria-label="Date wheel"></canvas>
+    <button class="btn spin" id="spin">Spin</button>
+  </div>
+</section>
+</main>
+
+<div class="modal" id="modal" hidden>
+  <div class="result">
+    <div class="ph" id="resPh"><img id="resImg" alt=""></div>
+    <h3 id="resTitle"></h3><p id="resMsg"></p>
+    <button class="btn" id="close">Spin again</button>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
